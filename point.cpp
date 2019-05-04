@@ -10,12 +10,12 @@ double Point::distance(Point a)
 }
 void Point::show()
 {
-    std::cout.width(20);
+    //std::cout.width(20);
     std::cout << "Name " << name << "\n";
-    std::cout.width(20);
+    //std::cout.width(20);
     std::cout << "X " << x << "\n";
-    std::cout.width(20);
+    //std::cout.width(20);
     std::cout << "Y " << y << "\n";
-    std::cout.width(20);
+    //std::cout.width(20);
     std::cout << "Z " << z << "\n";
 }
