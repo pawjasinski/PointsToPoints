@@ -5,7 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         main.cpp \
-        point.cpp
+        point.cpp \
+        pointstand.cpp
 
 HEADERS += \
-    point.h
+    point.h \
+    pointstand.h

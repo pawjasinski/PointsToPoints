@@ -4,6 +4,8 @@
 #include <fstream>
 #include <string>
 #include <math.h>
+#include <vector>
+#include <sstream>
 
 class Point
 {
@@ -38,4 +40,6 @@ public:
         return is;
     }
 };
+
+std::vector<Point*> loadPoints(std::fstream& file, const std::string fileName);
 #endif // POINT_H
