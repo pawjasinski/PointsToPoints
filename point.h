@@ -6,10 +6,11 @@
 #include <math.h>
 #include <vector>
 #include <sstream>
+#include <iomanip>
 
 class Point
 {
-private:
+protected:
     std:: string name;
     double x, y, z;
 public:
@@ -21,14 +22,12 @@ public:
     void show();
     friend std::ostream& operator<<(std::ostream& os, const Point* p)
     {
-        os.width(20);
-        os << "Name " << p->name << "\n";
-        os.width(20);
-        os << "X " << p->x << "\n";
-        os.width(20);
-        os << "Y " << p->y << "\n";
-        os.width(20);
-        os << "Z " << p->z << "\n";
+        os << p->name << "\t";
+        os << std::fixed;
+        os << std::setprecision(2);
+        os << p->x << "\t";
+        os << p->y << "\t";
+        os << p->z << "\r\n";
         return os;
     }
     friend std::istream& operator>>(std::istream& is, Point& p)
@@ -42,4 +41,5 @@ public:
 };
 
 std::vector<Point*> loadPoints(std::fstream& file, const std::string fileName);
+void freeMemory(std::vector<Point*> free);
 #endif // POINT_H

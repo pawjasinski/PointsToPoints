@@ -45,3 +45,25 @@ void assignPointsToPositions(const std::vector<Point*> points, const std::vector
         positions[i]->addPoint(points[index]);
     }
 }
+void freeMemory(std::vector<PointStand*> free)
+{
+    for(uint i = 0; i < free.size(); ++i)
+    {
+        delete free[i];
+    }
+}
+void writeOut(std::vector<PointStand*> pS)
+{
+    std::fstream file;
+    file.open("export.txt", std::ios::out);
+    file << "Name\tx\ty\tz\r\n";
+    for(uint i = 0; i < pS.size(); ++i)
+    {
+        file << pS[i];
+        for(uint j = 0; j < pS[i]->sizeOfPoints(); ++j)
+        {
+            pS[i]->getPoint(j);
+        }
+    }
+    file.close();
+}

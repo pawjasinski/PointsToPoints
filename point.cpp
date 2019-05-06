@@ -46,3 +46,10 @@ std::vector<Point*> loadPoints(std::fstream& file, const std::string fileName)
     file.close();
     return PointsArray;
 }
+void freeMemory(std::vector<Point*> free)
+{
+    for(uint i = 0; i < free.size(); ++i)
+    {
+        delete free[i];
+    }
+}

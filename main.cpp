@@ -9,4 +9,8 @@ int main()
     std::vector<PointStand*> Osnowa;
     Punkty = loadPoints(punkty, "Punkty.txt");
     Osnowa = loadPointsStand(osnowa, "Osnowa.txt");
+    writeOut(Osnowa);
+    freeMemory(Punkty);
+    freeMemory(Osnowa);
+    exit(0);
 }
