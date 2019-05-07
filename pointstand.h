@@ -14,10 +14,10 @@ public:
     Point* getPoint(uint i) {return points[i]; }
     friend std::ostream& operator<<(std::ostream& os, const PointStand* p)
     {
-        os << "Pkt osnowy: \n" << p->name << "\t";
-        os << p->x << " \t ";
-        os << p->y << " \t ";
-        os << p->z << " \r\n ";
+        os << "Pkt osnowy:\n" << p->name << "\t";
+        os << p->x << "\t";
+        os << p->y << "\t";
+        os << p->z << "\r\n";
         return os;
     }
 };

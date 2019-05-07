@@ -34,17 +34,22 @@ std::vector<PointStand*> loadPointsStand(std::fstream& file, const std::string f
 
 void assignPointsToPositions(const std::vector<Point*> points, const std::vector<PointStand*> positions)
 {
-    for(uint i = 0; i < positions.size(); ++i)
+    for(uint i = 0; i < points.size(); ++i)
     {
         uint index = 0;
-        double min = distance( *positions[i], *points[0] );
-        for(uint j = 0; j < points.size(); ++j)
+        double min = distance( *points[i], *dynamic_cast<Point*>( positions[0]) );
+        for(uint j = 0; j < positions.size(); ++j)
         {
-            if( min > distance( *positions[i], *points[j] ) ) index = j;
+            if (min > distance( *points[i], *dynamic_cast<Point*>( positions[j] )))
+            {
+                min = distance( *points[i], *dynamic_cast<Point*>( positions[j]) );
+                index = j;
+            }
         }
-        positions[i]->addPoint(points[index]);
+        positions[index]->addPoint(points[i]);
     }
 }
+
 void freeMemory(std::vector<PointStand*> free)
 {
     for(uint i = 0; i < free.size(); ++i)
@@ -60,9 +65,10 @@ void writeOut(std::vector<PointStand*> pS)
     for(uint i = 0; i < pS.size(); ++i)
     {
         file << pS[i];
+        file << "Punkty:\n";
         for(uint j = 0; j < pS[i]->sizeOfPoints(); ++j)
         {
-            pS[i]->getPoint(j);
+            file << pS[i]->getPoint(j);
         }
     }
     file.close();

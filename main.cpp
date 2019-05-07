@@ -9,6 +9,7 @@ int main()
     std::vector<PointStand*> Osnowa;
     Punkty = loadPoints(punkty, "Punkty.txt");
     Osnowa = loadPointsStand(osnowa, "Osnowa.txt");
+    assignPointsToPositions(Punkty, Osnowa);
     writeOut(Osnowa);
     freeMemory(Punkty);
     freeMemory(Osnowa);
